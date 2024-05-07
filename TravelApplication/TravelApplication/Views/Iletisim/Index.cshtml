@@ -1,0 +1,50 @@
+﻿@using TravelApplication.Models.Siniflar
+@model List<İletisim>
+@{
+	ViewBag.Title = "iIletisim";
+	Layout = "~/Views/Shared/_Test.cshtml";
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Free Easy-Trip Website Template | Home :: w3layouts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="~/web/css/style.css" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/web/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/web/js/jquery.min.js"></script>
+    <script src="~/web/js/responsiveslides.min.js"></script>
+
+    <script>
+        $(function () {
+            // Slideshow 1
+            $("#slider1").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+            });
+        });
+
+        function initMap() {
+            // Haritayı oluştur
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 40.712776, lng: -74.005974 }, // Başlangıç konumu (örnek: New York)
+                zoom: 8 // Yakınlaştırma seviyesi
+            });
+        }
+    </script>
+</head>
+<body>
+    <form method="post">
+        @foreach (var item in Model)
+        {
+            <p>@item.AdSoyad</p>
+            <p>@item.Mail</p>
+            <p>@item.Konu</p>
+            <p>@item.Mesaj</p>
+            <hr />
+        }
+    </form>
+</body>
+</html>

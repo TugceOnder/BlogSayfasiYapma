@@ -1,0 +1,96 @@
+﻿@model TravelApplication.Models.Siniflar.BlogYorum
+
+@{
+	ViewBag.Title = "Blog";
+	Layout = "~/Views/Shared/_Test.cshtml";
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+	
+	<link href="~/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<link href="~/web2/css/style.css" rel='stylesheet' type='text/css' />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	
+	<link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+
+
+	
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="clearfix">
+
+
+
+			</div>
+			
+	
+		</div>
+	</div>
+
+	<div class="single">
+		<div class="container">
+			<div class="col-md-8 single-main">
+				@foreach (var X in Model.Deger1)
+				{
+				
+					<div class="single-grid">
+						<img src="@X.BlogImage" alt="Blog Resmi" style="margin-bottom:20px" />0
+					<a href ="/Blog/BlogDetay/@X.ID"> @X.Baslık</a>
+					<p>
+							@X.Aciklama.Substring(0, 150)
+					</p>
+						<a href="/Blog/BlogDetay/@X.ID"><span class="read">Devamını Oku >></span> </a>
+				</div>
+				<br /><br />
+				}
+			</div>
+				
+
+
+			<div class="col-md-4 side-content">
+
+				<div class="recent">
+
+					<button><a href="/Blog/New" type="button" class="btn btn-outline-warning" style="color: #721c24; border-color: #721c24;">Yeni Blog Ekle</a></button>
+
+					
+				</div>
+				<div class="recent">
+					<h3>SonYorumlar </h3>
+					@foreach (var y in Model.Deger3)
+					{
+						<ul>
+							<li> @y.Yorumlars</li>
+
+						</ul>
+					}
+				</div>
+				<div class="comments">
+					<h3>Son Bloglar</h3>
+					@foreach (var y in Model.Deger3)
+					{
+						<ul>
+							<li><a href="/Blog/BlogDetay/@y.ID"> @y.Baslık </a></li>
+							
+						</ul>
+					}
+				
+				</div>
+		
+			</div>
+			<div class="clearfix"></div>
+
+
+		</div>
+	</div>
+	</body>
+
+</html>

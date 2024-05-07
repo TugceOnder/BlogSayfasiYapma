@@ -1,0 +1,67 @@
+﻿@model TravelApplication.Models.Siniflar.Modeller.YorumlarModel
+
+@{
+	ViewBag.Title = "Yorumlar";
+	Layout = "~/Views/Shared/_Test.cshtml";
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link href="~/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/web2/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="header">
+        <!-- Header içeriği buraya gelebilir -->
+    </div>
+    <div class="container">
+        <div class="row">
+            <!-- Blog Detayları -->
+            <div class="col-md-8">
+                <div class="single-main">
+                    <div class="single-grid">
+                    </div>
+                    <!-- Blog Detayları eklenebilir -->
+                </div>
+                <!-- Yorumlar -->
+                <div class="comment-section">
+                    <h3 style="text-align: center; font-weight: bold; margin-bottom: 20px;">Yorumlar</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th><u style="color: maroon;">Kullanıcı Adı</u></th>
+                                <th><u style="color: maroon;">Yorum</u></th>
+                                <th><u style="color: maroon;">Blog Başlığı</u></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var y in Model.Yorumlars)
+                            {
+                                <tr>
+                                    <td>@y.KullaniciAdi</td>
+                                    <td>@y.Yorum</td>
+                                    <td>  <a href="/Blog/BlogDetay/@y.Blog.ID">@y.Blog.Baslık </a></td>
+                                   
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- Yorum yapma formu eklenebilir -->
+                </div>
+            </div>
+            <!-- Diğer içerikler -->
+            <div class="col-md-4">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

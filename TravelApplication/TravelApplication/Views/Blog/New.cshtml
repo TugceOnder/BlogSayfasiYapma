@@ -1,0 +1,68 @@
+﻿@model TravelApplication.Models.Siniflar.Modeller.BlogNewModel
+
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Test.cshtml";
+}
+
+<div class="col-2"></div>
+<div class="col-8">
+    <head>
+        <link href="~/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+        <link href="~/web2/css/style.css" rel='stylesheet' type='text/css' />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+
+        <!-- SweetAlert2 için gerekli CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.7/sweetalert2.min.css">
+    </head>
+    <div class="col-md-2"></div>
+    <div class="col-md-8" style="background-color: #f8f9fa; padding: 20px;">
+        <h3>Yeni Blog Ekleme Formu</h3>
+        <form class="row" id="blogForm" action="/Blog/New" method="post">
+            <div class="col-md-12" style="margin-top: 10px;">
+                <input type="text" class="form-control" placeholder="Blog Resmi Linki yapıştırınız" name="BlogImage">
+            </div>
+            <div class="col-md-12" style="margin-top: 10px;">
+                <input type="text" class="form-control" placeholder="Blog Adını Giriniz" name="Baslık">
+            </div>
+            <div class="col-md-12" style="margin-top: 10px;">
+                <textarea class="form-control" style="height: 200px;" placeholder="Açıklama Giriniz" name="Aciklama"></textarea>
+            </div>
+            <div class="col-md-12" style="margin-top: 10px;">
+                <button type="button" class="btn btn-success" onclick="validateAndSubmit()">Kaydet</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<div class="col-2"></div>
+
+<!-- SweetAlert2 için gerekli JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.7/sweetalert2.all.min.js"></script>
+
+<script>
+    function validateAndSubmit() {
+        var blogImage = document.getElementsByName("BlogImage")[0].value;
+        var aciklama = document.getElementsByName("Aciklama")[0].value;
+
+
+        if (aciklama.length < 150) {
+            // Açıklama 150 karakterden azsa
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Açıklama en az 150 karakter içermelidir!"
+            });
+            return;
+        }
+
+        // Formu gönder
+        document.getElementById("blogForm").submit();
+    }
+</script>

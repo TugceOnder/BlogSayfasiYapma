@@ -1,0 +1,74 @@
+﻿@model TravelApplication.Models.Siniflar.Modeller.OtelModel
+
+@{
+	ViewBag.Title = "Oteller";
+	Layout = "~/Views/Shared/_Test.cshtml";
+}
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link href="~/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/web2/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+
+    <style>
+        /* Custom styles for hotel items */
+        .hotel-item {
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .hotel-image {
+            float: left;
+            margin-right: 20px;
+        }
+
+        .hotel-details {
+            overflow: hidden;
+        }
+
+        .hotel-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .hotel-description {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="wrap">
+            <div class="about">
+             <h3 style="color: black; font-weight: bold; text-align: center;">Oteller</h3>
+
+
+                @foreach (var item in Model.Otellers)
+                {
+                    <div class="hotel-item">
+                        <div class="hotel-image">
+                            <img src="@item.OtelImage" alt="Hotel Image" width="200" height="150">
+                        </div>
+                        <div class="hotel-details">
+                            <h4 class="hotel-title">@item.Baslık</h4>
+                            <p class="hotel-description">@item.Aciklama</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
